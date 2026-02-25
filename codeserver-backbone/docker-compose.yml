@@ -1,0 +1,24 @@
+version: '3.9'
+
+services:
+  codeserver:
+    image: codercom/code-server:latest
+    container_name: natural-codeserver
+    restart: unless-stopped
+    environment:
+      - PASSWORD=
+    ports:
+      - "8080:8080"
+    volumes:
+      - ../:/workspace:cached
+      - codeserver-data:/home/coder
+    command: >
+      sh -lc "
+      code-server
+      --auth none
+      --bind-addr 0.0.0.0:8080
+      /workspace
+      "
+
+volumes:
+  codeserver-data:

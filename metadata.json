@@ -1,0 +1,7 @@
+{
+  "name": "Natural Code Editor",
+  "description": "A revolutionary code editor that compiles plain English instructions into functional web applications using AI.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}

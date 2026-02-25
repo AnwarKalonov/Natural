@@ -1,0 +1,29 @@
+version: '3.9'
+
+services:
+  openvscode:
+    image: gitpod/openvscode-server:latest
+    container_name: natural-openvscode
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - OPENVSCODE_SERVER_PORT=3000
+      - OPENVSCODE_SERVER_HOST=0.0.0.0
+      - NATURAL_WEB_URL=http://host.docker.internal:5173
+    volumes:
+      - ../:/workspace:cached
+      - openvscode-data:/home/.openvscode-server
+    working_dir: /workspace
+    command: >
+      sh -lc "
+      openvscode-server
+      --install-extension /workspace/vscode-backbone/natural-vscode-extension
+      --host 0.0.0.0
+      --port 3000
+      --without-connection-token
+      /workspace
+      "
+
+volumes:
+  openvscode-data:

@@ -1,0 +1,75 @@
+{
+  "name": "natural-vscode-extension",
+  "displayName": "Natural",
+  "description": "Natural workspace tools for real VS Code backbone.",
+  "version": "0.0.1",
+  "publisher": "natural",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "icon": "media/natural.svg",
+  "activationEvents": [
+    "onStartupFinished",
+    "onCommand:natural.openApp",
+    "onCommand:natural.sendSelection",
+    "onView:natural.activity"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "natural-container",
+          "title": "Natural",
+          "icon": "media/natural.svg"
+        }
+      ]
+    },
+    "views": {
+      "natural-container": [
+        {
+          "id": "natural.activity",
+          "name": "Workspace"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "natural.openApp",
+        "title": "Natural: Open App"
+      },
+      {
+        "command": "natural.sendSelection",
+        "title": "Natural: Send Selection to Chat"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "natural.sendSelection",
+          "group": "navigation"
+        }
+      ],
+      "view/title": [
+        {
+          "command": "natural.openApp",
+          "when": "view == natural.activity",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Natural",
+      "properties": {
+        "natural.appUrl": {
+          "type": "string",
+          "default": "http://localhost:5173",
+          "description": "Natural web app URL opened by extension commands."
+        }
+      }
+    }
+  }
+}

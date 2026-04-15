@@ -118,11 +118,6 @@ Contributions are welcome.
 * Submit pull requests
 * Share feedback and ideas
 
----
-
-## License
-
-Add your license information here.
 
 ---
 
@@ -130,3 +125,6 @@ Add your license information here.
 
 Natural is a development environment designed to combine human intent with structured code, allowing users to build and collaborate more efficiently without losing control over their projects.
 
+
+## Reminder
+ Natural is not perfect. It is still under development, and backend glitches are not flawless
